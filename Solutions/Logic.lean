@@ -108,7 +108,18 @@ theorem impl_as_contrapositive :
 
 theorem impl_as_contrapositive_converse :
   (¬ Q → ¬ P) → (P → Q)  := by
-  sorry
+  intro negqimpnegp p
+  by_cases hq: Q
+  -- Case left
+  exact hq
+  have negp: ¬P:= negqimpnegp hq -- Does it need ¬P?
+  have c: False := negp p
+  exfalso
+  exact c
+
+
+
+
 
 theorem contrapositive_law :
   (P → Q) ↔ (¬ Q → ¬ P)  := by
