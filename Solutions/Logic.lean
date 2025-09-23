@@ -56,7 +56,15 @@ theorem disj_comm :
 
 theorem conj_comm :
   (P ∧ Q) → (Q ∧ P)  := by
-  sorry
+  intro hpq
+  constructor
+
+  have hq := hpq.right
+  exact hq
+
+  have hp := hpq.left
+  exact hp
+
 
 
 ------------------------------------------------
