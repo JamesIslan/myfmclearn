@@ -73,7 +73,15 @@ theorem conj_comm :
 
 theorem impl_as_disj_converse :
   (¬ P ∨ Q) → (P → Q)  := by
-  sorry
+  intro hip
+  intro p
+  rcases hip with (negp | q)
+  -- Case left
+  exfalso
+  apply negp
+  -- Case right
+  exact p
+  exact q
 
 theorem disj_as_impl :
   (P ∨ Q) → (¬ P → Q)  := by
