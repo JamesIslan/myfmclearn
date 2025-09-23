@@ -85,7 +85,14 @@ theorem impl_as_disj_converse :
 
 theorem disj_as_impl :
   (P ∨ Q) → (¬ P → Q)  := by
-  sorry
+  intro horq negp
+  rcases horq with (p | q)
+  have c: False := negp p
+  exfalso
+  apply negp
+  exact p
+  exact q
+
 
 
 ------------------------------------------------
@@ -94,7 +101,10 @@ theorem disj_as_impl :
 
 theorem impl_as_contrapositive :
   (P → Q) → (¬ Q → ¬ P)  := by
-  sorry
+  intro pimpq negq p
+  have q: Q := pimpq p
+  have c: False := negq q
+  exact c
 
 theorem impl_as_contrapositive_converse :
   (¬ Q → ¬ P) → (P → Q)  := by
