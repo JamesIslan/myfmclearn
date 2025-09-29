@@ -203,7 +203,17 @@ theorem impl_linear :
 
 theorem disj_as_negconj :
   P ∨ Q → ¬ (¬ P ∧ ¬ Q)  := by
-  sorry
+  intro p_or_q
+  intro neg_p_or_neg_q
+  rcases p_or_q with (p | q)
+  have neg_p : ¬ P := neg_p_or_neg_q.left
+  have c: False := neg_p p
+  exact c
+
+  have neg_q: ¬Q := neg_p_or_neg_q.right
+  have c: False := neg_q q
+  exact c
+
 
 theorem conj_as_negdisj :
   P ∧ Q → ¬ (¬ P ∨ ¬ Q)  := by
