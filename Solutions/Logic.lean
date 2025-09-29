@@ -185,7 +185,16 @@ theorem peirce_law_weak :
 
 theorem impl_linear :
   (P → Q) ∨ (Q → P)  := by
-  sorry
+  by_cases h: P
+  right
+  intro Q
+  exact h
+
+  left
+  intro P
+  have c: False := h P
+  exfalso
+  exact c
 
 
 ------------------------------------------------
