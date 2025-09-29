@@ -149,8 +149,17 @@ theorem contrapositive_law :
 
 theorem lem_irrefutable :
   ¬ ¬ (P ∨ ¬ P)  := by
-  sorry
-
+  intro npp
+  have p1_lem: P ∨ ¬P := by
+    right
+    intro p
+    have p2_lem: P ∨ ¬P := by
+      left
+      exact p
+    have c: False := npp p2_lem
+    contradiction
+  have f: False := npp p1_lem
+  contradiction
 
 ------------------------------------------------
 -- Peirce's law
