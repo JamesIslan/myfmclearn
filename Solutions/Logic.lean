@@ -217,7 +217,16 @@ theorem disj_as_negconj :
 
 theorem conj_as_negdisj :
   P ∧ Q → ¬ (¬ P ∨ ¬ Q)  := by
-  sorry
+  intro p_and_q
+  intro neg_p_or_neg_q
+  rcases neg_p_or_neg_q with (neg_p | neg_q)
+  have p: P := p_and_q.left
+  have c: False := neg_p p
+  exact c
+
+  have q: Q := p_and_q.right
+  have c: False := neg_q q
+  exact c
 
 
 ------------------------------------------------
