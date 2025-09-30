@@ -485,7 +485,9 @@ theorem weaken_disj_right :
 
 theorem weaken_disj_left :
   Q → (P ∨ Q)  := by
-  sorry
+  intro q
+  right
+  exact q
 
 theorem weaken_conj_right :
   (P ∧ Q) → P  := by
