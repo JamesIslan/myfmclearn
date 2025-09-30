@@ -360,18 +360,29 @@ theorem demorgan_disj_law :
   have c: False := nq q
   exact c
 
-
-
-
-
-
 ------------------------------------------------
 -- Distributivity laws between ∨,∧
 ------------------------------------------------
 
 theorem distr_conj_disj :
   P ∧ (Q ∨ R) → (P ∧ Q) ∨ (P ∧ R)  := by
-  sorry
+  intro p_and_qorr
+  rcases p_and_qorr with ⟨p, qorr⟩
+  rcases qorr with q | r
+
+  left
+  constructor
+  exact p
+  exact q
+
+  right
+  constructor
+  exact p
+  exact r
+
+
+
+
 
 theorem distr_conj_disj_converse :
   (P ∧ Q) ∨ (P ∧ R) → P ∧ (Q ∨ R)  := by
