@@ -286,7 +286,16 @@ theorem demorgan_conj :
 
 theorem demorgan_conj_converse :
   (¬ Q ∨ ¬ P) → ¬ (P ∧ Q)  := by
-  sorry
+  intro nq_or_np
+  intro p_and_q
+  rcases p_and_q with ⟨p, q⟩
+  rcases nq_or_np with nq | np
+
+  have c: False := nq q
+  exact c
+
+  have c: False := np p
+  exact c
 
 theorem demorgan_conj_law :
   ¬ (P ∧ Q) ↔ (¬ Q ∨ ¬ P)  := by
