@@ -544,7 +544,9 @@ theorem false_bottom :
 
 theorem true_top :
   P → True  := by
-  sorry
+  intro p
+  trivial
+
 
 
 end propositional
