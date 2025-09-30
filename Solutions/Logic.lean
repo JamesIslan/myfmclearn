@@ -442,7 +442,16 @@ theorem distr_disj_conj_converse :
 
 theorem curry_prop :
   ((P ∧ Q) → R) → (P → (Q → R))  := by
-  sorry
+  intro pandq_imp_r
+  intro p
+  intro q
+
+  have pandq: P ∧ Q := by
+    constructor
+    exact p
+    exact q
+  have r := pandq_imp_r pandq
+  exact r
 
 theorem uncurry_prop :
   (P → (Q → R)) → ((P ∧ Q) → R)  := by
