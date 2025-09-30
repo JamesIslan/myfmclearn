@@ -497,7 +497,9 @@ theorem weaken_conj_right :
 
 theorem weaken_conj_left :
   (P ∧ Q) → Q  := by
-  sorry
+  intro pandq
+  have q: Q := pandq.right
+  exact q
 
 
 ------------------------------------------------
