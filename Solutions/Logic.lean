@@ -479,7 +479,9 @@ theorem impl_refl :
 
 theorem weaken_disj_right :
   P → (P ∨ Q)  := by
-  sorry
+  intro p
+  left
+  exact p
 
 theorem weaken_disj_left :
   Q → (P ∨ Q)  := by
