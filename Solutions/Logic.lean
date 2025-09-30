@@ -508,7 +508,15 @@ theorem weaken_conj_left :
 
 theorem disj_idem :
   (P ∨ P) ↔ P  := by
-  sorry
+  constructor
+  intro porp
+  rcases porp with p1 | p2
+  exact p1
+  exact p2
+
+  intro p
+  left
+  exact p
 
 theorem conj_idem :
   (P ∧ P) ↔ P := by
