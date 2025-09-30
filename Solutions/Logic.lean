@@ -537,7 +537,10 @@ theorem conj_idem :
 
 theorem false_bottom :
   False → P := by
-  sorry
+  intro c
+  exfalso
+  exact c
+
 
 theorem true_top :
   P → True  := by
