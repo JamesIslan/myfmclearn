@@ -268,7 +268,21 @@ theorem demorgan_disj_converse :
 
 theorem demorgan_conj :
   ¬ (P ∧ Q) → (¬ Q ∨ ¬ P)  := by
-  sorry
+  intro neg_pandq
+  by_cases hp: P
+  by_cases hq : Q
+  have p_and_q: P ∧ Q := by
+    constructor
+    exact hp
+    exact hq
+  have c: False := neg_pandq p_and_q
+  exfalso
+  exact c
+  constructor
+  exact hq
+  right
+  exact hp
+
 
 theorem demorgan_conj_converse :
   (¬ Q ∨ ¬ P) → ¬ (P ∧ Q)  := by
