@@ -331,7 +331,38 @@ theorem demorgan_conj_law :
 
 theorem demorgan_disj_law :
   ¬ (P ∨ Q) ↔ (¬ P ∧ ¬ Q)  := by
-  sorry
+  constructor
+  intro n_porq
+  constructor
+  intro p
+
+  have porq : P ∨ Q := by
+    constructor
+    exact p
+
+  have c: False := n_porq porq
+  exact c
+
+  intro q
+  have porq : P ∨ Q := by
+    right
+    exact q
+  have c: False := n_porq porq
+  exact c
+
+  intro np_and_nq
+  intro porq
+  rcases np_and_nq with ⟨np, nq⟩
+  rcases porq with p | q
+  have c: False := np p
+  exact c
+
+  have c: False := nq q
+  exact c
+
+
+
+
 
 
 ------------------------------------------------
