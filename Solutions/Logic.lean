@@ -401,7 +401,22 @@ theorem distr_conj_disj_converse :
 
 theorem distr_disj_conj :
   P ∨ (Q ∧ R) → (P ∨ Q) ∧ (P ∨ R)  := by
-  sorry
+  intro p_or_qandr
+  rcases p_or_qandr with p | qandr
+  constructor
+
+  left
+  exact p
+
+  left
+  exact p
+
+  rcases qandr with ⟨q, r⟩
+  constructor
+  right
+  exact q
+  right
+  exact r
 
 theorem distr_disj_conj_converse :
   (P ∨ Q) ∧ (P ∨ R) → P ∨ (Q ∧ R)  := by
