@@ -455,7 +455,12 @@ theorem curry_prop :
 
 theorem uncurry_prop :
   (P → (Q → R)) → ((P ∧ Q) → R)  := by
-  sorry
+  intro p_imp_qimpr
+  intro pandq
+  rcases pandq with ⟨p, q⟩
+  have qimpr := p_imp_qimpr p
+  have r := qimpr q
+  exact r
 
 
 ------------------------------------------------
