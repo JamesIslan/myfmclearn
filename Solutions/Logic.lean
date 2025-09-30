@@ -520,7 +520,15 @@ theorem disj_idem :
 
 theorem conj_idem :
   (P ∧ P) ↔ P := by
-  sorry
+  constructor
+  intro pandp
+  have p: P := pandp.left
+  exact p
+
+  intro p
+  constructor
+  exact p
+  exact p
 
 
 ------------------------------------------------
