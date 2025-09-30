@@ -420,7 +420,20 @@ theorem distr_disj_conj :
 
 theorem distr_disj_conj_converse :
   (P ∨ Q) ∧ (P ∨ R) → P ∨ (Q ∧ R)  := by
-  sorry
+  intro porq_and_porr
+  rcases porq_and_porr with ⟨porq, porr⟩
+  rcases porq with p | q
+
+  left
+  exact p
+
+  rcases porr with p | r
+  left
+  exact p
+  right
+  constructor
+  exact q
+  exact r
 
 
 ------------------------------------------------
