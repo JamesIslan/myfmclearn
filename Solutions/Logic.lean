@@ -380,13 +380,24 @@ theorem distr_conj_disj :
   exact p
   exact r
 
-
-
-
-
 theorem distr_conj_disj_converse :
   (P ∧ Q) ∨ (P ∧ R) → P ∧ (Q ∨ R)  := by
-  sorry
+  intro pandq_or_pandr
+  rcases pandq_or_pandr with pandq | pandr
+  have p: P := pandq.left
+  constructor
+  exact p
+  have q: Q := pandq.right
+  left
+  exact q
+
+  have p: P := pandr.left
+  constructor
+  exact p
+
+  have r: R := pandr.right
+  right
+  exact r
 
 theorem distr_disj_conj :
   P ∨ (Q ∧ R) → (P ∨ Q) ∧ (P ∨ R)  := by
