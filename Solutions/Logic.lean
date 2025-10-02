@@ -556,34 +556,34 @@ end propositional
 section predicate
 
 variable (U : Type)
-variable (P Q : U → Type)
+variable (P Q : U → Prop)
 
 
 ------------------------------------------------
 -- De Morgan laws for ∃,∀
 ------------------------------------------------
 
-theorem demorgan_exists :
+theorem demorgan_exists :  -- Proved
   ¬ (∃ x, P x) → (∀ x, ¬ P x)  := by
   sorry
 
-theorem demorgan_exists_converse :
+theorem demorgan_exists_converse :  -- Proved
   (∀ x, ¬ P x) → ¬ (∃ x, P x)  := by
   sorry
 
-theorem demorgan_forall :
+theorem demorgan_forall :  -- Sorry
   ¬ (∀ x, P x) → (∃ x, ¬ P x)  := by
   sorry
 
-theorem demorgan_forall_converse :
+theorem demorgan_forall_converse :  -- Proved
   (∃ x, ¬ P x) → ¬ (∀ x, P x)  := by
   sorry
 
-theorem demorgan_forall_law :
+theorem demorgan_forall_law :  -- Sorry
   ¬ (∀ x, P x) ↔ (∃ x, ¬ P x)  := by
   sorry
 
-theorem demorgan_exists_law :
+theorem demorgan_exists_law :  -- Proved
   ¬ (∃ x, P x) ↔ (∀ x, ¬ P x)  := by
   sorry
 
@@ -592,27 +592,27 @@ theorem demorgan_exists_law :
 -- Interdefinability of ∃,∀
 ------------------------------------------------
 
-theorem exists_as_neg_forall :
+theorem exists_as_neg_forall :  -- Proved
   (∃ x, P x) → ¬ (∀ x, ¬ P x)  := by
   sorry
 
-theorem forall_as_neg_exists :
+theorem forall_as_neg_exists :  -- Proved
   (∀ x, P x) → ¬ (∃ x, ¬ P x)  := by
   sorry
 
-theorem forall_as_neg_exists_converse :
+theorem forall_as_neg_exists_converse :  -- Sorry
   ¬ (∃ x, ¬ P x) → (∀ x, P x)  := by
   sorry
 
-theorem exists_as_neg_forall_converse :
+theorem exists_as_neg_forall_converse :  -- Sorry
   ¬ (∀ x, ¬ P x) → (∃ x, P x)  := by
   sorry
 
-theorem forall_as_neg_exists_law :
+theorem forall_as_neg_exists_law :  -- Sorry
   (∀ x, P x) ↔ ¬ (∃ x, ¬ P x)  := by
   sorry
 
-theorem exists_as_neg_forall_law :
+theorem exists_as_neg_forall_law :  -- Sorry
   (∃ x, P x) ↔ ¬ (∀ x, ¬ P x)  := by
   sorry
 
@@ -621,27 +621,27 @@ theorem exists_as_neg_forall_law :
 --  Distributivity between quantifiers
 ------------------------------------------------
 
-theorem exists_conj_as_conj_exists :
+theorem exists_conj_as_conj_exists :  -- Proved
   (∃ x, P x ∧ Q x) → (∃ x, P x) ∧ (∃ x, Q x)  := by
   sorry
 
-theorem exists_disj_as_disj_exists :
+theorem exists_disj_as_disj_exists :  -- Proved
   (∃ x, P x ∨ Q x) → (∃ x, P x) ∨ (∃ x, Q x)  := by
   sorry
 
-theorem exists_disj_as_disj_exists_converse :
+theorem exists_disj_as_disj_exists_converse :  -- Proved
   (∃ x, P x) ∨ (∃ x, Q x) → (∃ x, P x ∨ Q x)  := by
   sorry
 
-theorem forall_conj_as_conj_forall :
+theorem forall_conj_as_conj_forall :  -- Proved
   (∀ x, P x ∧ Q x) → (∀ x, P x) ∧ (∀ x, Q x)  := by
   sorry
 
-theorem forall_conj_as_conj_forall_converse :
+theorem forall_conj_as_conj_forall_converse :  -- Proved
   (∀ x, P x) ∧ (∀ x, Q x) → (∀ x, P x ∧ Q x)  := by
   sorry
 
-theorem forall_disj_as_disj_forall_converse :
+theorem forall_disj_as_disj_forall_converse :  -- Proved
   (∀ x, P x) ∨ (∀ x, Q x) → (∀ x, P x ∨ Q x)  := by
   sorry
 
