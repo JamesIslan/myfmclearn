@@ -565,7 +565,13 @@ variable (P Q : U → Prop)
 
 theorem demorgan_exists :  -- Proved
   ¬ (∃ x, P x) → (∀ x, ¬ P x)  := by
-  sorry
+  intro he
+  intro a
+  intro npa
+  have ep : ∃ x, P x := by
+    exists a
+  have c: False :=  he ep
+  exact c
 
 theorem demorgan_exists_converse :  -- Proved
   (∀ x, ¬ P x) → ¬ (∃ x, P x)  := by
